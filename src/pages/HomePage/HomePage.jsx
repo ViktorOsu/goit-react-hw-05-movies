@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { List, Item, LinkItem } from './HomePageStyled';
 import { useLocation } from 'react-router-dom';
-import { HomeApi } from 'serviceApi/HomeApi';
+import { HomePageApi } from 'serviceApi/HomeApi';
 import PropTypes from 'prop-types';
 
 const HomePage = () => {
@@ -11,7 +11,7 @@ const HomePage = () => {
   useEffect(() => {
     const addMovies = async () => {
       try {
-        const data = await HomeApi();
+        const data = await HomePageApi();
         setMovies(data.results);
       } catch (error) {
         console.log(error.message);
