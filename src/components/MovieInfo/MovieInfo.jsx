@@ -5,6 +5,7 @@ import {
   Wrapper,
   Genres,
 } from '../MoviesDetails/MoviesDetailsStyled';
+import PropTypes from 'prop-types';
 
 const MovieInfo = ({ imageData, movie }) => {
   const { title, release_date, vote_average, overview, poster_path } = movie;
@@ -39,3 +40,21 @@ const MovieInfo = ({ imageData, movie }) => {
 };
 
 export default MovieInfo;
+
+MovieInfo.propTypes = {
+  imageData: PropTypes.shape({
+    base_url: PropTypes.string.isRequired,
+  }).isRequired,
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
+};

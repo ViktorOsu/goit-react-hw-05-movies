@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getMovieDetails } from '../../serviceApi/MovieApi';
+import { getMovieById } from '../../serviceApi/getMoviesApi';
+import PropTypes from 'prop-types';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -9,7 +10,7 @@ const Reviews = () => {
   useEffect(() => {
     const getReviews = async () => {
       try {
-        const data = await getMovieDetails(movieId, '/reviews');
+        const data = await getMovieById(movieId, '/reviews');
 
         setReviews(data.results);
       } catch (error) {
@@ -38,3 +39,7 @@ const Reviews = () => {
 };
 
 export default Reviews;
+
+Reviews.propTypes = {
+  movieId: PropTypes.string.isRequired,
+};

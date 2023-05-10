@@ -9,7 +9,7 @@ const DetailsContainer = styled.div`
 `;
 const Container = styled.div`
   display: flex;
-  gap 20px
+  gap: 20px;
 `;
 const Wrapper = styled.div`
   padding: 10px;
@@ -18,7 +18,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border: 1px solid black;
   margin-bottom: 20px;
 `;
 
@@ -26,7 +25,7 @@ const Button = styled.button`
   display: inline-block;
   padding: 5px 8px;
   border-radius: 4px;
-  background-color: orangered;
+  background-color: #74f809;
   color: white;
   margin-bottom: 5px;
   border: none;
@@ -37,9 +36,7 @@ const Genres = styled.div`
   padding: 10px;
   border-radius: 4px;
   display: flex;
-
   gap: 20px;
-
   margin-bottom: 20px;
 `;
 const DetailsLink = styled(NavLink)`
@@ -52,7 +49,7 @@ const DetailsLink = styled(NavLink)`
   font-weight: 600;
 
   &.active {
-    background-color: orangered;
+    background-color: #df4710;
     color: white;
     border-radius: 4px;
   }

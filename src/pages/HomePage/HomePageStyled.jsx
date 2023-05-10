@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const List = styled.ul`
+const List = styled.ol`
   display: flex;
   flex-direction: column;
   max-width: 350px;
   gap: 5px;
-  list-style: none;
   padding: 0px;
+  margin-left: 30px;
 `;
 
 const Item = styled.li`

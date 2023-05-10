@@ -24,16 +24,6 @@ export const getMovieById = async (movieId, info) => {
   return data.data;
 };
 
-export const getMovieCast = async id => {
-  const data = await instance.get(`/movie/${id}/credits?api_key=${API_KEY}`);
-  return data.data;
-};
-
-export const getMovieReviews = async id => {
-  const data = await instance.get(`/movie/${id}/reviews?api_key=${API_KEY}`);
-  return data.data;
-};
-
 export const getImages = async () => {
   const data = await instance.get(`/configuration?api_key=${API_KEY}`);
   return data.data;

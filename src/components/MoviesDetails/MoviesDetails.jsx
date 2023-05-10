@@ -1,8 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { getMovieDetails, getImages } from '../../serviceApi/MovieApi';
+import { getMovieById, getImages } from '../../serviceApi/getMoviesApi';
 import MovieInfo from '../MovieInfo/MovieInfo';
 import { Button, DetailsLink } from '../MoviesDetails/MoviesDetailsStyled';
+import PropTypes from 'prop-types';
 
 const MoviesDetails = () => {
   const { movieId } = useParams();
@@ -15,7 +16,7 @@ const MoviesDetails = () => {
   useEffect(() => {
     const movieDetails = async () => {
       try {
-        const data = await getMovieDetails(movieId, '');
+        const data = await getMovieById(movieId, '');
         setMovie(data);
       } catch (error) {
         console.log(error.message);
@@ -62,3 +63,7 @@ const MoviesDetails = () => {
 };
 
 export default MoviesDetails;
+
+MoviesDetails.propTypes = {
+  movieId: PropTypes.string.isRequired,
+};
