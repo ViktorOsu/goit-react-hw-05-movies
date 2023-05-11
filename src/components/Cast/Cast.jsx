@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { getMovieById } from '../../serviceApi/getMoviesApi';
 import { CastList, CastImg } from './CastStyled';
 import { getImages } from '../../serviceApi/getMoviesApi';
-import PropTypes from 'prop-types';
 
-const Cast = () => {
+
+export const Cast = () => {
   const { movieId } = useParams();
   const [actors, setActors] = useState(null);
   const [imageData, setImageData] = useState(null);
@@ -58,6 +58,3 @@ const Cast = () => {
 };
 
 export default Cast;
-Cast.propTypes = {
-  movieId: PropTypes.string.isRequired,
-};

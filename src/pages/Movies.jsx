@@ -5,7 +5,6 @@ import { List, Item, LinkItem } from './HomePage/HomePageStyled';
 import SearchBox from '../components/SearchBox/SearchBox';
 
 const Movies = () => {
-  const [value, setValue] = useState('');
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
@@ -18,6 +17,10 @@ const Movies = () => {
     const searchMovie = async () => {
       try {
         const data = await getSearchMovies(query);
+        if (data.results.length === 0) {
+          alert(`no response on request ${query}`);
+          return;
+        }
         setMovies(data.results);
       } catch (error) {
         console.log(error.message);
@@ -26,34 +29,12 @@ const Movies = () => {
     searchMovie();
   }, [query]);
 
-  useEffect(() => {
-    if (!value) {
-      return;
-    }
-    const searchMovie = async () => {
-      try {
-        const data = await getSearchMovies(value);
-        if (data.results.length === 0) {
-          alert(`no response on request ${value}`);
-          return;
-        }
-        setMovies(data.results);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-
-    searchMovie();
-  }, [value]);
-
   const handleSubmit = e => {
     e.preventDefault();
 
-    setValue(e.target.elements.query.value);
-    setSearchParams(
-      value !== '' ? {} : { query: e.target.elements.query.value }
-    );
-    e.target.elements.query.value = '';
+    const queryName = e.target.elements.query.value;
+
+    setSearchParams(queryName !== '' ? { query: queryName } : {});
   };
 
   return (

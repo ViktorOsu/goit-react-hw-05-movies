@@ -4,7 +4,7 @@ import {
   Container,
   Wrapper,
   Genres,
-} from '../MoviesDetails/MoviesDetailsStyled';
+} from '../../pages/MoviesDetails/MoviesDetailsStyled';
 import PropTypes from 'prop-types';
 
 const MovieInfo = ({ imageData, movie }) => {

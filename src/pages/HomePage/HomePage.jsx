@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { List, Item, LinkItem } from './HomePageStyled';
 import { useLocation } from 'react-router-dom';
 import { HomePageApi } from 'serviceApi/HomeApi';
-import PropTypes from 'prop-types';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -37,12 +36,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-HomePage.propTypes = {
-  movies: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
-    })
-  ).isRequired,
-};

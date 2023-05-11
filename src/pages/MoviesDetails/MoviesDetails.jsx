@@ -1,9 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { getMovieById, getImages } from '../../serviceApi/getMoviesApi';
-import MovieInfo from '../MovieInfo/MovieInfo';
-import { Button, DetailsLink } from '../MoviesDetails/MoviesDetailsStyled';
-import PropTypes from 'prop-types';
+import MovieInfo from '../../components/MovieInfo/MovieInfo';
+import { Button, DetailsLink } from './MoviesDetailsStyled';
 
 const MoviesDetails = () => {
   const { movieId } = useParams();
@@ -63,7 +62,3 @@ const MoviesDetails = () => {
 };
 
 export default MoviesDetails;
-
-MoviesDetails.propTypes = {
-  movieId: PropTypes.string.isRequired,
-};

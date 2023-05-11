@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovieById } from '../../serviceApi/getMoviesApi';
-import PropTypes from 'prop-types';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -39,7 +38,3 @@ const Reviews = () => {
 };
 
 export default Reviews;
-
-Reviews.propTypes = {
-  movieId: PropTypes.string.isRequired,
-};
