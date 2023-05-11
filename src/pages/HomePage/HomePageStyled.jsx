@@ -7,7 +7,7 @@ const List = styled.ol`
   max-width: 350px;
   gap: 5px;
   padding: 0px;
-  margin-left: 30px;
+  margin-left: 29px;
 `;
 
 const Item = styled.li`
